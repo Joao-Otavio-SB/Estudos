@@ -1,1 +1,3 @@
-Projeto para praticar desenvolvimento front-end
+# SmartWatch
+
+Projeto para praticar um pouco de frontend
