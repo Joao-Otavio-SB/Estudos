@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Smart Watch</title>
+            
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            
+            <nav class="navBar" id="navBar">
+                <img id="amazonImage" src="./assets/amazon.png" alt="Logo Amazon">
+            </nav>
+            
+            <main class="content">  
+                
+                <div class="watchDiv">
+                    <img id="smartWatch" alt="Imagem de um relógio">
+
+                    <h3 id="timeText">BLABLA</h3>
+                    <div id='heartDiv'>
+                        <div id='heart'>&#x2665;</div>
+                        <h3 id="heartRate">BLBLBL</h3>
+                    </div>
+                </div>
+                
+                <div class="details">
+                    <h1>FitBit 19 - The Smartest Watch</h1>
+                    <h3>Lorem ipusm dolor Lorem ipusm dolor Lorem ipusm dolor Lorem ipusm dolor Lorem ipusm dolor Lorem ipusm dolor</h2>
+                
+                    <h1>Select Color:</h1>
+                    <div class="colors">
+                        <div class="color" id="blue" style="background-color: #565681"></div>
+                        <div class="color" id="purple" style="background-color: #8a5362;"></div>
+                        <div class="color" id="black" style="background-color: #23211f;"></div>
+                        <div class="color" id="red" style="background-color: #ca3d22;"></div>
+                        <div class="color" id="pink" style="background-color: #e9c7be;"></div>
+                    </div>
+
+                    <h1>Features</h1>
+
+                    <div class="features">
+                        <button id="timeBtn" onclick='change(event)'>Time</button>
+                        <button id="heartBtn" onclick="change(event)">Heart Rate</button>
+                    </div>
+
+                    <button onclick="BUY()">BUY NOW</button>
+                </div>
+                
+            </main>
+            
+        </body>
+        <script src="script.js"></script>
+    </html>

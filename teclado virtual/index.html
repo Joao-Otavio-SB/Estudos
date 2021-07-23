@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Keyboard player</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<link rel="stylesheet" href="./styles.css" />
+
+		<script src="./script.js"></script>
+	</head>
+
+	<body>
+		<div class="content">
+			<h1 class="mainTitle">Virtual Keyboard</h1>
+
+			<ul class="set">
+				<li
+					data-key="a"
+					onmousedown="playSound(event)"
+					class="white e"
+				></li>
+				<li
+					data-key="w"
+					class="black ds"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="s"
+					class="white d"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="e"
+					class="black cs"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="d"
+					class="white c"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="f"
+					class="white b"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="t"
+					class="black as"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="g"
+					class="white a"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="y"
+					class="black gs"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="h"
+					class="white g"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="u"
+					class="black fs"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="j"
+					class="white f"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="k"
+					class="white e"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="o"
+					class="black ds"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="l"
+					class="white d"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="p"
+					class="black cs"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="ç"
+					class="white c"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="]"
+					class="white b"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="["
+					class="black as"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="z"
+					class="white a"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="x"
+					class="black gs"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="c"
+					class="white g"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="v"
+					class="black fs"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="b"
+					class="white f"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="n"
+					class="white e"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="m"
+					class="black ds"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key=","
+					class="white d"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key="."
+					class="black cs"
+					onmousedown="playSound(event)"
+				></li>
+				<li
+					data-key=";"
+					class="white c"
+					onmousedown="playSound(event)"
+				></li>
+			</ul>
+		</div>
+
+		<audio data-key="a" src="./assets/key-notes/c3.mp3"></audio>
+		<audio data-key="w" src="./assets/key-notes/c-3.mp3"></audio>
+		<audio data-key="s" src="./assets/key-notes/d3.mp3"></audio>
+		<audio data-key="e" src="./assets/key-notes/d-3.mp3"></audio>
+		<audio data-key="d" src="./assets/key-notes/e3.mp3"></audio>
+		<audio data-key="f" src="./assets/key-notes/f3.mp3"></audio>
+		<audio data-key="t" src="./assets/key-notes/f-3.mp3"></audio>
+		<audio data-key="g" src="./assets/key-notes/g3.mp3"></audio>
+		<audio data-key="y" src="./assets/key-notes/g-3.mp3"></audio>
+		<audio data-key="h" src="./assets/key-notes/a4.mp3"></audio>
+		<audio data-key="u" src="./assets/key-notes/a-4.mp3"></audio>
+		<audio data-key="j" src="./assets/key-notes/b3.mp3"></audio>
+		<audio data-key="k" src="./assets/key-notes/c4.mp3"></audio>
+		<audio data-key="o" src="./assets/key-notes/c-4.mp3"></audio>
+		<audio data-key="l" src="./assets/key-notes/d4.mp3"></audio>
+		<audio data-key="p" src="./assets/key-notes/d-4.mp3"></audio>
+		<audio data-key="ç" src="./assets/key-notes/e4.mp3"></audio>
+		<audio data-key="]" src="./assets/key-notes/f4.mp3"></audio>
+		<audio data-key="[" src="./assets/key-notes/f-4.mp3"></audio>
+		<audio data-key="z" src="./assets/key-notes/g4.mp3"></audio>
+		<audio data-key="x" src="./assets/key-notes/g-4.mp3"></audio>
+		<audio data-key="c" src="./assets/key-notes/a5.mp3"></audio>
+		<audio data-key="v" src="./assets/key-notes/a-5.mp3"></audio>
+		<audio data-key="b" src="./assets/key-notes/b5.mp3"></audio>
+		<audio data-key="n" src="./assets/key-notes/c5.mp3"></audio>
+		<audio data-key="m" src="./assets/key-notes/c-5.mp3"></audio>
+		<audio data-key="," src="./assets/key-notes/d5.mp3"></audio>
+		<audio data-key="." src="./assets/key-notes/d-5.mp3"></audio>
+		<audio data-key=";" src="./assets/key-notes/e5.mp3"></audio>
+	</body>
+</html>
