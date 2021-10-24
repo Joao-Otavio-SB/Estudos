@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%-include('../partials/head.ejs')%>
+	<body>
+		<%-include('../partials/nav.ejs')%>
+
+		<div class="container">
+			<div class="row">
+				<form
+					class="col s12"
+					action="/create-item"
+					method="POST"
+					id="addForm"
+					enctype="multipart/form-data"
+				>
+					<div class="row">
+						<div style="display: flex; align-items: flex-end">
+							<img
+								id="itemImg"
+								class="materialboxed responsive-img"
+								width="320"
+								src="http://via.placeholder.com/640x360"
+								alt="item image"
+							/>
+							<input
+								style="display: none"
+								id="uploadImg"
+								type="file"
+								name="image"
+								multiple
+								required
+								onchange="uploadImage(event)"
+							/>
+							<label for="uploadImg"
+								><i
+									class="material-icons"
+									style="color: red; cursor: pointer"
+									>photo</i
+								></label
+							>
+						</div>
+						<div class="input-field col s6">
+							<i class="material-icons prefix">shopping_cart</i>
+							<input
+								id="icon_prefix"
+								type="text"
+								class="validate"
+								name="name"
+								required
+							/>
+							<label for="icon_prefix">Item Name</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="material-icons prefix">request_quote</i>
+							<input
+								id="icon_telephone"
+								type="tel"
+								class="validate"
+								name="price"
+								required
+							/>
+							<label for="icon_telephone">Price</label>
+						</div>
+					</div>
+
+					<button class="btn" type="submit">Add Item</button>
+				</form>
+			</div>
+		</div>
+	</body>
+
+	<style>
+		img {
+			margin-top: 3rem;
+		}
+	</style>
+
+	<script>
+		let img = document.querySelector('#itemImg');
+
+		function uploadImage(event) {
+			if (event.target.files && event.target.files[0]) {
+				let fileReader = new FileReader();
+
+				fileReader.readAsDataURL(event.target.files[0]);
+				fileReader.onload = (e) => {
+					img.setAttribute('src', e.target.result);
+				};
+			}
+		}
+
+		const form = document.querySelector('#addForm');
+
+		let data = new FormData(form);
+
+		for (var n of data.entries()) {
+			console.log(n);
+		}
+	</script>
+</html>

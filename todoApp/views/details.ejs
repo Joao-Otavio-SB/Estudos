@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%-include('../partials/head.ejs')%>
+	<body>
+		<%-include('../partials/nav.ejs')%>
+
+		<div class="container center">
+			<h1>Item details</h1>
+
+			<div class="col s12 m6">
+				<div class="card hoverable">
+					<div class="card-image">
+						<img
+							id="itemImg"
+							src="data:<%=item.img.contentType%>;base64,<%=item.img.data%>"
+						/>
+						<span class="card-title"><%=item.name%></span>
+					</div>
+					<div class="card-content">
+						<h3><%=item.name%> - <%=item.price%>R$</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="fixed-action-btn modal-trigger" href="#modal1">
+			<a class="btn-floating btn-large red">
+				<i class="large material-icons">mode_edit</i>
+			</a>
+		</div>
+
+		<div id="modal1" class="modal">
+			<form id="edit_form" data-id="<%=item._id%>" data-item="<%=item%>">
+				<div class="modal-content">
+					<h4>Edit Item</h4>
+
+					<div class="row">
+						<div style="display: flex; align-items: flex-end">
+							<img
+								id="editImg"
+								class="materialboxed responsive-img"
+								width="320"
+								src="data:<%=item.img.contentType%>;base64,<%=item.img.data%>"
+								alt="item image"
+							/>
+							<input
+								style="display: none"
+								id="uploadImg"
+								type="file"
+								name="image"
+								value="<%=item.image%>"
+								multiple
+								required
+								onchange="uploadImage(event)"
+							/>
+							<label for="uploadImg"
+								><i
+									class="material-icons"
+									style="color: red; cursor: pointer"
+									>photo</i
+								></label
+							>
+						</div>
+						<div class="input-field col s6">
+							<i class="material-icons prefix">shopping_cart</i>
+							<input
+								id="icon_prefix"
+								type="text"
+								class="validate"
+								value="<%=item.name%>"
+								name="name"
+								required
+							/>
+							<label for="icon_prefix">Item Name</label>
+						</div>
+						<div class="input-field col s6">
+							<i class="material-icons prefix">request_quote</i>
+							<input
+								id="icon_telephone"
+								type="number"
+								class="validate"
+								value="<%=item.price%>"
+								name="price"
+								required
+							/>
+							<label for="icon_telephone">Price</label>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a
+						href="#!"
+						class="modal-close waves-effect waves-green btn-flat"
+						>Cancel</a
+					>
+					<button
+						type="submit"
+						class="modal-close waves-effect waves-green btn-flat"
+					>
+						Save
+					</button>
+				</div>
+			</form>
+		</div>
+	</body>
+
+	<script>
+		const img = document.querySelector('#editImg');
+
+		function uploadImage(event) {
+			if (event.target.files && event.target.files[0]) {
+				let fileReader = new FileReader();
+
+				fileReader.readAsDataURL(event.target.files[0]);
+				fileReader.onload = (e) => {
+					img.setAttribute('src', e.target.result);
+				};
+			}
+		}
+
+		const editForm = document.querySelector('#edit_form');
+		const imgSelected = document.querySelector('#uploadImg');
+		const nameSelected = document.querySelector('#name');
+		const priceSelected = document.querySelector('#price');
+
+		editForm.onsubmit = async (e) => {
+			e.preventDefault();
+
+			const data = new FormData(editForm);
+
+			fetch(`/items/${e.target.dataset.id}/update`, {
+				method: 'PUT',
+				body: new URLSearchParams(data),
+				headers: new Headers({
+					'Content-type':
+						'application/x-www-form-urlencoded; charser=UTF-8',
+				}),
+			})
+				.then((res) => {
+					res.json();
+				})
+				.catch((err) => {
+					res.json({ error: err });
+				});
+		};
+	</script>
+</html>

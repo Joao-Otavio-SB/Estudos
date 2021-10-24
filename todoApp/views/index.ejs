@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%-include('../partials/head.ejs')%>
+	<body>
+		<%-include('../partials/nav.ejs')%>
+
+		<div class="container">
+			<ul class="collection with-header">
+				<%if (items.length > 0) {%> <%items.forEach((item) => {%>
+				<li class="collection-item">
+					<div class="col s12 m7">
+						<a href="/items/<%=item._id%>">
+							<div class="card horizontal hoverable">
+								<div class="card-image">
+									<img
+										style="width: 40rem; height: 14rem"
+										src="data:<%=item.img.contentType%>;base64,<%=item.img.data%>"
+									/>
+								</div>
+								<div class="card-stacked">
+									<div class="card-content">
+										<div class="info">
+											<h3><%=item.name%></h3>
+											<h4><%=item.price%></h4>
+										</div>
+										<div>
+											<a
+												id="deleteBtn"
+												data-id="<%=item._id%>"
+												data-name="<%=item.name%>"
+												class="material-icons"
+												>delete</a
+											>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</li>
+				<%})%> <%} else {%>
+				<li>There are no items</li>
+				<%}%>
+			</ul>
+		</div>
+	</body>
+
+	<script>
+		const deleteBtn = document.querySelectorAll('#deleteBtn');
+
+		deleteBtn.forEach((item) => {
+			item.addEventListener('click', (e) => {
+				e.preventDefault();
+
+				const choice = confirm(
+					`Deseja mesmo deletar ${e.target.dataset.name}? O item não poderá mais ser recuperado.`
+				);
+
+				if (choice) {
+					fetch(`items/delete/${e.target.dataset.id}`, {
+						method: 'DELETE',
+					})
+						.then((res) => {
+							res.json().then(() => {
+								window.location.reload();
+							});
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+				}
+			});
+		});
+	</script>
+
+	<style>
+		i {
+			color: black;
+		}
+		a {
+			color: black;
+			cursor: pointer;
+		}
+		.card-content {
+			display: flex;
+			justify-content: space-between;
+		}
+		.info {
+			margin-left: -20rem;
+			color: black;
+		}
+	</style>
+</html>

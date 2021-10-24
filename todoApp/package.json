@@ -1,0 +1,27 @@
+{
+	"name": "todoapp",
+	"version": "1.0.0",
+	"description": "App utilizando nodejs e express para fazer uma lista de tarefas",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon app.js"
+	},
+	"keywords": [
+		"nodejs",
+		"express"
+	],
+	"author": "João Otávio",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"ejs": "^3.1.6",
+		"express": "^4.17.1",
+		"mongoose": "^5.13.4",
+		"morgan": "^1.10.0",
+		"multer": "^1.4.3",
+		"node-fetch": "^3.0.0",
+		"nodemon": "^2.0.12",
+		"prettier": "^2.3.2"
+	}
+}
